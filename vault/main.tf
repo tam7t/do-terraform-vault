@@ -18,10 +18,10 @@ resource "digitalocean_droplet" "server" {
     inline = [
       "cd /tmp",
       # consul client
-      "wget https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_amd64.zip",
-      "unzip consul_0.5.2_linux_amd64.zip -d /usr/local/bin",
+      "wget https://releases.hashicorp.com/consul/0.6.0/consul_0.6.0_linux_amd64.zip",
+      "unzip consul_0.6.0_linux_amd64.zip -d /usr/local/bin",
       "chmod +x /usr/local/bin/consul",
-      "rm /tmp/consul_0.5.2_linux_amd64.zip",
+      "rm /tmp/consul_0.6.0_linux_amd64.zip",
 
       # vault server
       "wget https://releases.hashicorp.com/vault/0.3.1/vault_0.3.1_linux_amd64.zip",
