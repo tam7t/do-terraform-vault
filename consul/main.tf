@@ -34,6 +34,21 @@ resource "digitalocean_droplet" "server" {
     ]
   }
 
+  provisioner "file" {
+    source = "${var.ca_file}"
+    destination = "/etc/consul/ca.pem"
+  }
+
+  provisioner "file" {
+    source = "${var.consul_cert_file}"
+    destination = "/etc/consul/cert.pem"
+  }
+
+  provisioner "file" {
+    source = "${var.consul_key_file}"
+    destination = "/etc/consul/key.pem"
+  }
+
   # Would much rather 'template_file' be a provisioner instead of a resource.
   # This terrible hack is used to avoid a cycle
   provisioner "remote-exec" {

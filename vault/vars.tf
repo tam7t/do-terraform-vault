@@ -6,3 +6,8 @@ variable "size" { default="1gb" }
 variable "ssh_key_id" {}
 variable "consul_address" {}
 variable "consul_encrypt_key" {}
+variable "ca_file" {}
+variable "consul_cert_file" {}
+variable "consul_key_file" {}
+variable "vault_cert_file" {}
+variable "vault_key_file" {}

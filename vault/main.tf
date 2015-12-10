@@ -58,6 +58,31 @@ resource "digitalocean_droplet" "server" {
   }
 
   provisioner "file" {
+    source = "${var.ca_file}"
+    destination = "/etc/consul/ca.pem"
+  }
+
+  provisioner "file" {
+    source = "${var.consul_cert_file}"
+    destination = "/etc/consul/cert.pem"
+  }
+
+  provisioner "file" {
+    source = "${var.consul_key_file}"
+    destination = "/etc/consul/key.pem"
+  }
+
+  provisioner "file" {
+    source = "${var.vault_cert_file}"
+    destination = "/etc/vault/cert.pem"
+  }
+
+  provisioner "file" {
+    source = "${var.vault_key_file}"
+    destination = "/etc/vault/key.pem"
+  }
+
+  provisioner "file" {
     source = "${path.module}/conf/upstart-consul.conf"
     destination = "/etc/init/consul.conf"
   }
