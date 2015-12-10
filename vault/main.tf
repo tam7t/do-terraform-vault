@@ -24,11 +24,11 @@ resource "digitalocean_droplet" "server" {
       "rm /tmp/consul_0.6.0_linux_amd64.zip",
 
       # vault server
-      "wget https://releases.hashicorp.com/vault/0.3.1/vault_0.3.1_linux_amd64.zip",
-      "unzip vault_0.3.1_linux_amd64.zip -d /usr/local/bin",
+      "wget https://releases.hashicorp.com/vault/0.4.0/vault_0.4.0_linux_amd64.zip",
+      "unzip vault_0.4.0_linux_amd64.zip -d /usr/local/bin",
       "chmod +x /usr/local/bin/vault",
       "setcap cap_ipc_lock=+ep $(readlink -f /usr/local/bin/vault)",
-      "rm /tmp/vault_0.3.1_linux_amd64.zip"
+      "rm /tmp/vault_0.4.0_linux_amd64.zip"
     ]
   }
 
