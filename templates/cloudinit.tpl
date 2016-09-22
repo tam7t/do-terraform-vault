@@ -13,7 +13,7 @@ coreos:
       ConditionPathExists=!/media/vault
       [Service]
       Type=oneshot
-      ExecStart=/bin/sh -c "lsblk -nd -o FSTYPE /dev/disk/by-id/scsi-0DO_Volume_${volume_name} | grep ext4 && echo 'ok' || /usr/sbin/mkfs.ext4 /dev/disk/by-id/scsi-0DO_Volume_${volume_name}"
+      ExecStart=/bin/sh -c "lsblk -nd -o FSTYPE /dev/disk/by-id/scsi-0DO_Volume_${volume_name} | grep ext4 || /usr/sbin/mkfs.ext4 /dev/disk/by-id/scsi-0DO_Volume_${volume_name}"
   - name: media-vault.mount
     enabled: true
     command: start
