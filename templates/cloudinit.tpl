@@ -7,9 +7,6 @@ coreos:
     content: |
       [Unit]
       Before=docker.service media-vault.mount
-      # woudl be great to use blkid to only mkfs.ext4 if its not already formatted
-      # $ sudo blkid /dev/disk/by-id/scsi-0DO_Volume_vault-data
-      # /dev/disk/by-id/scsi-0DO_Volume_vault-data: UUID="c45f826a-8df0-48a3-9144-c9fd07fe3747" TYPE="ext4"
       ConditionPathExists=!/media/vault
       [Service]
       Type=oneshot
