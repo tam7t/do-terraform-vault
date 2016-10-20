@@ -19,6 +19,7 @@ data "template_file" "cloudinit" {
 
   vars {
     volume_name = "${digitalocean_volume.data.name}"
+    version     = "${var.vault_version}"
   }
 }
 

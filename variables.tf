@@ -1,7 +1,3 @@
-variable "do_token" {}
-
-variable "ssh_key_path" {}
-
 variable "region" {
   default = "nyc1"
 }
@@ -16,4 +12,9 @@ variable "image" {
 
 variable "volume_size" {
   default = "10"
+}
+
+variable "vault_version" {
+  description = "The version of vault to run"
+  default     = "0.6.2"
 }

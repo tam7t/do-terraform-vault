@@ -38,5 +38,5 @@ coreos:
       ExecStartPre=-/usr/bin/docker kill vault
       ExecStartPre=-/usr/bin/docker rm vault
       ExecStartPre=/usr/bin/docker pull vault:0.6.1
-      ExecStart=/usr/bin/docker run --cap-add IPC_LOCK --name vault --volume /media/vault:/vault/file -e 'VAULT_LOCAL_CONFIG={"backend": {"file": {"path": "/vault/file"}}, "listener": {"tcp":{"address":"0.0.0.0:8200", "tls_disable":1}}}' -p 8200:8200 vault:0.6.1 server
+      ExecStart=/usr/bin/docker run --cap-add IPC_LOCK --name vault --volume /media/vault:/vault/file -e 'VAULT_LOCAL_CONFIG={"backend": {"file": {"path": "/vault/file"}}, "listener": {"tcp":{"address":"0.0.0.0:8200", "tls_disable":1}}}' -p 8200:8200 vault:${version} server
       ExecStop=/usr/bin/docker stop vault
